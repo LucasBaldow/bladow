@@ -24,8 +24,6 @@ export default function Header() {
     <header className="bg-white shadow-md">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {" "}
-          {/* Mudança aqui */}
           {/* Logo ECG Life */}
           <div className="flex-shrink-0">
             <a href="/">
@@ -38,14 +36,12 @@ export default function Header() {
           </div>
           {/* Flexbox para centralizar menu e botão Login */}
           <div className="hidden md:flex items-center mx-auto space-x-4">
-            {" "}
-            {/* Usei mx-auto para centralizar */}
             <nav className="flex items-center space-x-4">
               {menuItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
+                  className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-bold" // Negrito aqui
                 >
                   {item.name}
                 </a>
@@ -107,7 +103,7 @@ export default function Header() {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-gray-600 hover:bg-gray-100 block px-3 py-2 rounded-md text-base font-medium"
+                className="text-gray-600 hover:bg-gray-100 block px-3 py-2 rounded-md text-base font-bold" // Negrito aqui também
               >
                 {item.name}
               </a>

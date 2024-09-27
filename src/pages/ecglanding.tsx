@@ -1,12 +1,19 @@
 export default function ECGLifeLanding() {
   return (
     <div className="flex justify-center mt-20">
-      {" "}
       {/* Margem superior para descer o bloco */}
-      <div className="relative w-full max-w-3xl h-[400px] bg-gradient-to-br from-blue-400 to-blue-950 rounded-lg overflow-hidden">
-        {" "}
-        {/* Gradiente azul mais escuro */}
+      <div className="relative w-full max-w-3xl h-[400px] bg-white rounded-lg overflow-hidden">
         <div className="absolute inset-0 bg-[url('/ecg-background.svg')] opacity-20"></div>
+
+        {/* Adicionando a imagem dentro do retângulo */}
+        <div className="absolute inset-0 flex justify-center items-center">
+          <img
+            src="/exame.png"
+            alt=""
+            className="max-h-full max-w-full object-contain"
+          />
+        </div>
+
         <div className="relative z-10 p-6 text-white flex flex-col justify-between h-full">
           <div>
             <h1 className="text-2xl font-bold mb-4">ECG Life</h1>
@@ -41,7 +48,6 @@ export default function ECGLifeLanding() {
           </div>
 
           <div className="flex justify-end">
-            {" "}
             {/* Flex para alinhar o botão à direita */}
             <button className="bg-white text-black hover:bg-gray-100 px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200">
               Comece agora
