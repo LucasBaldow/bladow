@@ -1,53 +1,58 @@
+import { Link } from "react-router-dom";
 import { useState } from "react";
-import { Menu, ChevronDown } from "lucide-react"; // Importando o ícone da seta para baixo
+import { Menu, ChevronDown } from "lucide-react";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isLangOpen, setIsLangOpen] = useState(false); // Estado para o dropdown de idioma
-  const [selectedLang, setSelectedLang] = useState<string>("PT"); // Estado para o idioma selecionado
+  const [isLangOpen, setIsLangOpen] = useState(false);
+  const [selectedLang, setSelectedLang] = useState<string>("PT");
 
   const menuItems = [
-    { name: "Soluções", href: "/solucoes" },
-    { name: "Equipe", href: "/equipe" },
-    { name: "Premiações", href: "/premiacoes" },
-    { name: "Contato", href: "/contato" },
+    { name: "Home", href: "home" },
+    { name: "Soluções", href: "solucoes1" },
+    { name: "Equipe", href: "team" },
+    { name: "Premiações", href: "awards" },
+    { name: "Contato", href: "contact" },
   ];
 
-  const languages: string[] = ["PT", "EN", "ES"]; // Lista de idiomas disponíveis
+  const languages: string[] = ["PT", "EN", "ES"];
 
   const handleLangSelect = (lang: string) => {
-    setSelectedLang(lang); // Atualiza o idioma selecionado
-    setIsLangOpen(false); // Fecha o dropdown após selecionar
+    setSelectedLang(lang);
+    setIsLangOpen(false);
+  };
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   };
 
   return (
-    <header className="bg-white shadow-md">
+    <header className="bg-white shadow-md fixed top-0 left-0 w-full z-10">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo ECG Life */}
           <div className="flex-shrink-0">
-            <a href="/">
+            <Link to="/">
               <img
                 src="/logo oficial 2.png"
                 alt="ECG Life Logo"
                 className="h-10 w-auto"
               />
-            </a>
+            </Link>
           </div>
-          {/* Flexbox para centralizar menu e botão Login */}
           <div className="hidden md:flex items-center mx-auto space-x-4">
             <nav className="flex items-center space-x-4">
               {menuItems.map((item) => (
-                <a
+                <button
                   key={item.name}
-                  href={item.href}
-                  className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-bold" // Negrito aqui
+                  onClick={() => scrollToSection(item.href)}
+                  className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-bold"
                 >
                   {item.name}
-                </a>
+                </button>
               ))}
-
-              {/* Dropdown de idiomas */}
               <div className="relative">
                 <button
                   onClick={() => setIsLangOpen(!isLangOpen)}
@@ -67,7 +72,7 @@ export default function Header() {
                       {languages.map((lang) => (
                         <a
                           key={lang}
-                          onClick={() => handleLangSelect(lang)} // Define o idioma selecionado
+                          onClick={() => handleLangSelect(lang)}
                           className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
                           role="menuitem"
                         >
@@ -79,7 +84,6 @@ export default function Header() {
                 )}
               </div>
             </nav>
-            {/* Botão "Login" */}
             <button className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-gray-700 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
               Login
             </button>
@@ -100,13 +104,16 @@ export default function Header() {
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {menuItems.map((item) => (
-              <a
+              <button
                 key={item.name}
-                href={item.href}
-                className="text-gray-600 hover:bg-gray-100 block px-3 py-2 rounded-md text-base font-bold" // Negrito aqui também
+                onClick={() => {
+                  scrollToSection(item.href);
+                  setIsMenuOpen(false); // Fecha o menu após a seleção
+                }}
+                className="text-gray-600 hover:bg-gray-100 block px-3 py-2 rounded-md text-base font-bold"
               >
                 {item.name}
-              </a>
+              </button>
             ))}
             <button className="w-full mt-2 px-4 py-2 border border-transparent text-sm font-medium rounded-md text-gray-700 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
               Login

@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import Header from "./components/header";
 import ECGLifeLanding from "./pages/ecglanding";
 import ECGLifeLanding2 from "./pages/ecglanding2";
@@ -12,15 +12,29 @@ function App() {
   return (
     <Router>
       <Header />
-      <Routes>
-        <Route path="/" element={<ECGLifeLanding />} />
-        <Route path="/ecglanding2" element={<ECGLifeLanding2 />} />
-        <Route path="/solucoes1" element={<SolutionsPage />} />
-        <Route path="/solucoes2" element={<SolutionsPage2 />} />
-        <Route path="/team" element={<ExecutiveTeam />} />
-        <Route path="/awards" element={<AwardsPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-      </Routes>
+      <main>
+        <section id="home" className="h-screen">
+          <ECGLifeLanding />
+        </section>
+        <section id="ecglanding2" className="h-screen">
+          <ECGLifeLanding2 />
+        </section>
+        <section id="solucoes1" className="h-screen">
+          <SolutionsPage />
+        </section>
+        <section id="solucoes2" className="h-screen">
+          <SolutionsPage2 />
+        </section>
+        <section id="team" className="h-screen">
+          <ExecutiveTeam />
+        </section>
+        <section id="awards" className="h-screen">
+          <AwardsPage />
+        </section>
+        <section id="contact" className="h-screen">
+          <ContactPage />
+        </section>
+      </main>
     </Router>
   );
 }
