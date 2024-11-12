@@ -1,7 +1,7 @@
 export default function AwardsPage() {
   return (
-    <div className="max-w-4xl mx-auto p-8">
-      <h1 className="text-2xl font-bold mb-8">Premiações</h1>
+    <div className="max-w-4xl mx-auto p-8 mt-16">
+      <h1 className="text-[16px] font-semibold mb-8">Premiações</h1>
 
       <div className="space-y-12">
         <div className="bg-white p-6 rounded-lg shadow-md">

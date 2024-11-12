@@ -49,20 +49,19 @@ const executives: Executive[] = [
 // Componente ExecutiveTeam
 export default function ExecutiveTeam() {
   return (
-    <div className="container mx-auto px-4 py-2">
-      <h1 className="text-lg font-bold mb-0">Equipe</h1>
-      <h2 className="text-lg font-semibold mt-2 mb-4">Perfis de executivos</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div className="container mx-auto mt-20 px-20 py-2">
+      <h1 className="text-[16px] font-semibold mb-10 ml-24">Equipe</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {executives.map((exec: Executive, index: number) => (
           <div key={index} className="flex flex-col items-center text-center">
             <img
               src={exec.image}
               alt={exec.name}
-              width={150}
-              height={150}
-              className="rounded-full mb-4"
+              width={180}
+              height={160}
+              className="mb-0"
             />
-            <h3 className="font-bold text-lg">{exec.name}</h3>
+            <h3 className="font-bold text-[15px]">{exec.name}</h3>
             <p className="text-blue-600">{exec.title}</p>
             <p className="text-gray-600">{exec.description}</p>
           </div>

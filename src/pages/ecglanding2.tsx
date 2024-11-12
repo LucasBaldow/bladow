@@ -1,6 +1,6 @@
 export default function ECGLifeLanding2() {
   return (
-    <div className="flex flex-col items-center mt-10">
+    <div className="flex flex-col items-center mt-24">
       {/* Bloco branco */}
       <div className="relative w-full max-w-4xl bg-white rounded-lg shadow-md overflow-hidden flex flex-col items-center justify-center mx-auto">
         {/* Imagem dentro do bloco */}

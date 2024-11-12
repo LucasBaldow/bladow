@@ -9,17 +9,10 @@ const SolutionCard: React.FC<SolutionCardProps> = ({
   description,
   imageSrc,
 }) => (
-  <div className="relative overflow-hidden rounded-lg shadow-lg h-[400px]">
-    {" "}
-    {/* Ajustando a altura total do card */}
-    <img
-      src={imageSrc}
-      alt={title}
-      className="w-full h-[px] object-cover" // Diminuindo a altura da imagem
-    />
+  <div className="relative overflow-hidden rounded-lg shadow-lg w-[245px] h-[293px]">
+    <img src={imageSrc} alt={title} className="w-full h-full object-cover" />
     <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col justify-end p-4">
-      <h3 className="text-white text-lg font-bold mb-1">{title}</h3>{" "}
-      {/* Diminuindo a fonte do título */}
+      <h3 className="text-white text-lg font-bold mb-1">{title}</h3>
       <p className="text-white text-sm">{description}</p>
     </div>
   </div>
@@ -46,11 +39,13 @@ export default function SolutionsPage() {
   ];
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h2 className="text-2xl font-bold mb-8 text-left">Soluções</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="container mx-auto px-20 py-20">
+      <h2 className="text-[16px] font-semibold mb-16 mt-8 ml-28">Soluções</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0.1 max-w-[1200px] mx-20">
         {solutions.map((solution, index) => (
-          <SolutionCard key={index} {...solution} />
+          <div className="flex justify-center">
+            <SolutionCard key={index} {...solution} />
+          </div>
         ))}
       </div>
     </div>

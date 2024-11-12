@@ -1,6 +1,6 @@
 export default function SolutionsPage2() {
   return (
-    <div className="bg-gray-100 min-h-screen p-8">
+    <div className="bg-gray-100 min-h-screen p-8 mt-16">
       <div className="max-w-4xl mx-auto grid grid-cols-2 gap-8 mt-8">
         {" "}
         {/* Adicionando mt-8 para mover os componentes para baixo */}
